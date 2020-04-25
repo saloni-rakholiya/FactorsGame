@@ -1,11 +1,13 @@
 package com.example.playwithfactors;
 
 import android.graphics.Color;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -66,7 +68,7 @@ int score=0;
 
                 int b; int count=0; int k=0;
                 Random rand=new Random();
-                if(n>7||n==4)
+                if(n>7)
                 { int i;
                     list.add(1);
                     list.add(n);
@@ -78,12 +80,16 @@ int score=0;
                     list.add((int)n/i);}}
                 b=rand.nextInt(list.size());
                 finalfactor=list.get(b);}
-                else finalfactor=1;
+                else
+                    if(n==4) finalfactor=2;
+                    else if(n==6) finalfactor=3;
+                    else
+                        finalfactor=1;
 
 
                 int randomval1=1,randomval2=1;
 
-                if(n==1||n==2||n==3||n==5||n==7)
+                if(n==1||n==2||n==3||n==5||n==6||n==7||n==4)
                 {
 
                 randomval1=(int)rand.nextInt(20)+8;
@@ -135,6 +141,10 @@ int score=0;
                             score=score+1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
+
 
                         }
                     });
@@ -145,6 +155,9 @@ int score=0;
                             ans.setText("OOPS!! try again!"); ans.setTextColor(Color.RED); score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     }));
 
@@ -154,6 +167,9 @@ int score=0;
                             ans.setText("OOOPS!! Try again!"); ans.setTextColor(Color.RED); score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     });
                 }
@@ -172,8 +188,12 @@ int score=0;
                         public void onClick(View v) {
                             ans.setText("SUCCESS!!!Enter Next number"); ans.setTextColor(Color.GREEN);
                             score=score+1;
+
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     });
 
@@ -184,6 +204,9 @@ int score=0;
                             score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     }));
 
@@ -194,6 +217,9 @@ int score=0;
                             score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     });
                 }
@@ -211,8 +237,12 @@ int score=0;
                         public void onClick(View v) {
                             ans.setText("SUCCESS!!! Enter Next number"); ans.setTextColor(Color.GREEN);
                             score=score+1;
+
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     });
 
@@ -223,6 +253,9 @@ int score=0;
                             score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     }));
 
@@ -233,6 +266,9 @@ int score=0;
                             score=score-1;
                             s.setText(String.valueOf(score));
                             input.getText().clear();
+                            opt1.setVisibility(View.INVISIBLE);
+                            opt2.setVisibility(View.INVISIBLE);
+                            opt3.setVisibility(View.INVISIBLE);
                         }
                     });
                 }
